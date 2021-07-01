@@ -6,7 +6,7 @@ import Contact from "../components/Contact";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="section-center">
       <Hero />
       <FeaturedProduct />
       <Services />

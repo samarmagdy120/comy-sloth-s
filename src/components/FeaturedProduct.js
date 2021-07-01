@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { UseProductContext } from "../context/product-context";
+import { useProductContext } from "../context/product-context";
 import heroBcg from "../assets/hero-bcg.jpeg";
 import heroBcg2 from "../assets/hero-bcg-2.jpeg";
 import Error from "./Error";
@@ -14,7 +14,7 @@ const FeaturedProduct = () => {
     products_error: error,
     products_loading: loading,
     products,
-  } = UseProductContext();
+  } = useProductContext();
   console.log(products);
   if (error) {
     return <Error />;
@@ -28,12 +28,12 @@ const FeaturedProduct = () => {
         <h2>Featured Products</h2>
         <hr className="underline" />
       </div>
-      <div className="feature-section section-center">
-        {featured.map((feature) => {
+      <div className="feature-section">
+        {featured.slice(0, 3).map((feature) => {
           return (
             <div className="feature-item">
               <div className="overlay">
-                <Link className="search-icon">
+                <Link to={`/products/${feature.id}`} className="search-icon">
                   <FaSearch />
                 </Link>
               </div>

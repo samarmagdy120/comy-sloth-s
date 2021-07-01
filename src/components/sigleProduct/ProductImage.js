@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductImage = () => {
-  return <div>vv</div>;
+  return <div>singlepage</div>;
 };
 
 export default ProductImage;

@@ -41,7 +41,7 @@ export const ProductProvider = ({ children }) => {
     try {
       const response = await axios(url);
       const singleProduct = response.data;
-      console.log(singleProduct);
+      // console.log(singleProduct);
       dispatch({ type: GET_SINGLE_PRODUCTS_SUCCESS, payload: singleProduct });
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_FAILES });
@@ -53,13 +53,13 @@ export const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ initialState, fetchProduct, fetchSingleProduct }}
+      value={{ ...state, fetchProduct, fetchSingleProduct }}
     >
       {children}
     </ProductContext.Provider>
   );
 };
 
-export const UseProductContext = () => {
+export const useProductContext = () => {
   return useContext(ProductContext);
 };
