@@ -12,7 +12,7 @@ import Error from "../components/Error";
 import Loading from "../components/Loading";
 
 const SingleProduct = () => {
-  console.log(useParams);
+  // console.log(useParams);
 
   const { id } = useParams();
 
@@ -23,15 +23,16 @@ const SingleProduct = () => {
     fetchSingleProduct,
   } = useProductContext();
 
+  useEffect(() => {
+    fetchSingleProduct(`${url}${id}`);
+  }, [id]);
+
   if (error) {
     return <Error />;
   }
   if (loading) {
     return <Loading />;
   }
-  useEffect(() => {
-    fetchSingleProduct(`${url}${id}`);
-  }, [id]);
 
   /*sigle_product like product */
   const {

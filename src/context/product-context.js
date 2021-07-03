@@ -44,7 +44,7 @@ export const ProductProvider = ({ children }) => {
       // console.log(singleProduct);
       dispatch({ type: GET_SINGLE_PRODUCTS_SUCCESS, payload: singleProduct });
     } catch (error) {
-      dispatch({ type: GET_PRODUCTS_FAILES });
+      dispatch({ type: GET_SINGLE_PRODUCTS_FAILES });
     }
   };
   useEffect(() => {
